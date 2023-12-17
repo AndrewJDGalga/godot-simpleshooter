@@ -5,3 +5,4 @@
 
 [node name="player_space" instance=ExtResource("1_swjsc")]
 script = ExtResource("1_2f10c")
+move_speed = 250.0
