@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://lxgqjoeytm6e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ygc8b"]
+radius = 12.0
+height = 32.0
+
+[node name="player_base" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ygc8b")
+
+[node name="temp_vid_bod" type="ColorRect" parent="."]
+offset_left = -10.0
+offset_top = -16.0
+offset_right = 10.0
+offset_bottom = 16.0
+color = Color(0, 0.827451, 0, 1)
