@@ -6,4 +6,6 @@
 !project.godot
 !lv/
 !entity/
+!entityScripts/
 !*.tscn
+!*.gd
