@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://biu52s1a0e6vg"]
+[gd_scene load_steps=2 format=3 uid="uid://biu52s1a0e6vg"]
+
+[ext_resource type="PackedScene" uid="uid://dwt3hob104uk4" path="res://entity/player_space.tscn" id="1_gugsu"]
 
 [node name="TestSpace" type="Node2D"]
+
+[node name="player_space" parent="." instance=ExtResource("1_gugsu")]
