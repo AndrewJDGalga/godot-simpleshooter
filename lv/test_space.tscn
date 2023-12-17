@@ -5,3 +5,5 @@
 [node name="TestSpace" type="Node2D"]
 
 [node name="player_space" parent="." instance=ExtResource("1_gugsu")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
