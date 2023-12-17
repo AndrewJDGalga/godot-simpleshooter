@@ -5,6 +5,6 @@
 [node name="TestSpace" type="Node2D"]
 
 [node name="player_space" parent="." instance=ExtResource("1_gugsu")]
-move_speed = 250.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -256)
