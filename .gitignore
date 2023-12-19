@@ -7,5 +7,6 @@
 !lv/
 !entity/
 !entityScripts/
+!weapons/
 !*.tscn
 !*.gd
