@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://lxgqjoeytm6e"]
+[gd_scene load_steps=3 format=3 uid="uid://lxgqjoeytm6e"]
+
+[ext_resource type="PackedScene" uid="uid://capg22fvoej3b" path="res://weapons/laser.tscn" id="1_e1tcp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ygc8b"]
 radius = 12.0
@@ -20,3 +22,5 @@ color = Color(0, 0.827451, 0, 1)
 [node name="missile_targeting" type="RayCast2D" parent="."]
 position = Vector2(0, -24)
 target_position = Vector2(0, -576)
+
+[node name="Laser" parent="." instance=ExtResource("1_e1tcp")]
