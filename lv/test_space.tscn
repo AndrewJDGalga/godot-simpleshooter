@@ -5,6 +5,8 @@
 [node name="TestSpace" type="Node2D"]
 
 [node name="player_space" parent="." instance=ExtResource("1_gugsu")]
+collision_layer = 1
+collision_mask = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -256)
