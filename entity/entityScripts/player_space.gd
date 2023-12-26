@@ -39,13 +39,26 @@ func lock_to_screen():
 	if global_position.x > right_limit:
 		velocity.x = 0
 		global_position.x -= 1
+	
+	if global_position.y < top_limit:
+		velocity.y = 0
+		global_position.y += 1
+	if global_position.y > bottom_limit:
+		velocity.y = 0
+		global_position.y -= 1
 
 func move_frictionless():
 	if Input.is_action_pressed("left"):
-		velocity.x -= 50
+		velocity.x -= 40
 	if Input.is_action_pressed("right"):
-		velocity.x += 50
-	clamp(velocity.x, -150, 150)
+		velocity.x += 40
+	clamp(velocity.x, -120, 120)
+	
+	if Input.is_action_pressed("up"):
+		velocity.y -= 10
+	if Input.is_action_pressed("down"):
+		velocity.y += 10
+	clamp(velocity.y, -30, 30)
 
 func movement(dt):
 	var dir = Vector2(Input.get_action_strength("right") - \
