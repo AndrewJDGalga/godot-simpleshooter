@@ -10,6 +10,7 @@ script = ExtResource("1_qqodf")
 position = Vector2(309, -83)
 collision_layer = 1
 collision_mask = 1
+move_speed = 300.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -256)
