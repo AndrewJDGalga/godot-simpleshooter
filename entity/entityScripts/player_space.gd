@@ -22,16 +22,24 @@ func _ready():
 
 func _physics_process(delta):
 	lock_to_screen()
-	movement(delta)
+	#movement(delta)
+	move_frictionless()
 	laserHandler()
-	boost_left()
-	boost_right()
+	#boost_left()
+	#boost_right()
 	
-	move_and_collide(velocity)
+	move_and_collide(velocity * delta)
 
 func lock_to_screen():
 	global_position.x = clamp(position.x, left_limit, right_limit)
 	global_position.y = clamp(position.y, top_limit, bottom_limit)
+
+func move_frictionless():
+	if Input.is_action_pressed("left"):
+		velocity.x -= 50
+	if Input.is_action_pressed("right"):
+		velocity.x += 50
+	clamp(velocity.x, -200, 200)
 
 func movement(dt):
 	var dir = Vector2(Input.get_action_strength("right") - \
