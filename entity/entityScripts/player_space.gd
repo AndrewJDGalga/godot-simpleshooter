@@ -22,11 +22,18 @@ func _ready():
 	laser = $player_laser
 
 func _physics_process(delta):
-	move_frictionless()
-	lock_to_screen()
+	#move_frictionless()
+	#lock_to_screen()
+	
+	move()
+	rot(delta)
+	
 	laserHandler()
 	
-	move_and_collide(velocity * delta)
+	#move_and_collide(velocity * delta)
+
+func wrap_screen():
+	pass
 
 func lock_to_screen():
 	if global_position.x < left_limit:
@@ -51,3 +58,26 @@ func move_frictionless():
 		velocity.y -= speed.y
 	if Input.is_action_pressed("down"):
 		velocity.y += speed.y
+
+var dir = 0
+var rot_dir = 0
+
+func move():
+	dir = Input.get_axis("up", "down")
+	if Input.is_action_pressed("up"):
+		#velocity = global_position.rotated(rotation)
+		velocity = Vector2.UP.rotated(rotation) * 50
+		move_and_slide()
+	#if Input.is_action_pressed("up"):
+		#pass
+	#if Input.is_action_pressed("down"):
+		#pass
+
+func rot(dt):
+	rot_dir = Input.get_axis("left", "right")
+	rotate(rot_dir * dt * 2)
+	#velocity.rotated()
+	#if Input.is_action_pressed("left"):
+		#pass
+	#if Input.is_action_pressed("right"):
+		#pass
