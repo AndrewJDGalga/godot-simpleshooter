@@ -1,8 +1,7 @@
 extends Player
 
-@export var speed_limit = Vector2(60, 20)
 @export var speed = Vector2(40,10)
-@export var border_recovery = 1.0
+@export var border_recovery = 80.0
 var screen_limit:Vector2 = Vector2.ZERO
 var sprite = null
 var top_limit = 0
@@ -27,37 +26,28 @@ func _physics_process(delta):
 	lock_to_screen()
 	laserHandler()
 	
-	velocity.clamp(-speed_limit, speed_limit)
-	move_and_slide() #velocity * delta)
+	move_and_collide(velocity * delta)
 
 func lock_to_screen():
 	if global_position.x < left_limit:
-		velocity.x = 0
+		velocity.x = -border_recovery
 		global_position.x = right_limit
-		#velocity.x += 500
 	if global_position.x > right_limit:
-		velocity.x = 0
+		velocity.x = border_recovery
 		global_position.x = left_limit
-		#velocity.x -= 500
 	if global_position.y < top_limit:
-		velocity.y = 0
+		velocity.y = -border_recovery
 		global_position.y = bottom_limit
-		#velocity.y += 200
 	if global_position.y > bottom_limit:
-		velocity.y = 0
+		velocity.y = border_recovery
 		global_position.y = top_limit
-		#velocity.y -= 200
-		#print(velocity)
 
 func move_frictionless():
 	if Input.is_action_pressed("left"):
 		velocity.x -= speed.x
 	if Input.is_action_pressed("right"):
 		velocity.x += speed.x
-	#clamp(velocity.x, -speed_limit.x, speed_limit.x)
 	if Input.is_action_pressed("up"):
 		velocity.y -= speed.y
 	if Input.is_action_pressed("down"):
 		velocity.y += speed.y
-	#clamp(velocity.y, -speed_limit.y, speed_limit.y)
-	
