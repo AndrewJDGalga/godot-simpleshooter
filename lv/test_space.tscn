@@ -12,3 +12,6 @@ collision_mask = 1
 move_speed = 400.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="summon_timer" type="Timer" parent="."]
+one_shot = true
