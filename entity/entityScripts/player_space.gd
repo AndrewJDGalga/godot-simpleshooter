@@ -63,11 +63,16 @@ var dir = 0
 var rot_dir = 0
 
 func move():
-	dir = Input.get_axis("up", "down")
-	if Input.is_action_pressed("up"):
+	velocity += Input.get_axis("down", "up") * Vector2.UP.rotated(rotation) * 5
+	velocity = velocity.clamp(Vector2(-50,-50), Vector2(50,50))
+	
+	print(velocity)
+	#if Input.is_action_pressed("up"):
 		#velocity = global_position.rotated(rotation)
-		velocity = Vector2.UP.rotated(rotation) * 50
-		move_and_slide()
+		#velocity += Vector2.UP.rotated(rotation) * 50
+	#if Input.is_action_pressed("down"):
+		#velocity -= Vector2.UP.rotated(rotation) * 50
+	move_and_slide()
 	#if Input.is_action_pressed("up"):
 		#pass
 	#if Input.is_action_pressed("down"):
