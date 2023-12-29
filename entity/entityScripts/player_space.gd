@@ -15,10 +15,10 @@ func _ready():
 		ProjectSettings.get_setting("display/window/size/viewport_width"), \
 		ProjectSettings.get_setting("display/window/size/viewport_height"))
 	sprite = $temp_vid_bod
-	top_limit = -screen_limit.y + sprite.size.y * 2
-	bottom_limit = sprite.size.y/2
-	left_limit = -screen_limit.x/2 + sprite.size.y/2
-	right_limit = screen_limit.x/2 - sprite.size.y/2
+	top_limit = -screen_limit.y/2 + sprite.size.y/2
+	bottom_limit = screen_limit.y/2 - sprite.size.y/2
+	left_limit = -screen_limit.x/2 + sprite.size.x/2
+	right_limit = screen_limit.x/2 - sprite.size.x/2
 	laser = $player_laser
 
 func _physics_process(delta):

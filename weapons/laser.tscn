@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://weapons/laser.gd" id="1_1nmkw"]
 
 [node name="Laser" type="RayCast2D"]
-target_position = Vector2(0, -576)
+target_position = Vector2(0, -1024)
 script = ExtResource("1_1nmkw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
