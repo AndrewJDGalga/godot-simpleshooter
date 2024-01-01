@@ -15,6 +15,20 @@ move_speed = 400.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="SpawnPoint" parent="." instance=ExtResource("3_kmbvh")]
-target_positions = PackedVector2Array(1, 0, 2, 0, 3, 0, 4, 0, 5, 0)
+[node name="spawn_points" type="Node2D" parent="."]
+
+[node name="SpawnPoint" parent="spawn_points" instance=ExtResource("3_kmbvh")]
+position = Vector2(-576, 0)
+target_positions = PackedVector2Array(576, 0, 576, -243, 576, 243)
 test_enemy = ExtResource("3_0sjr2")
+
+[node name="destination_points" type="Node2D" parent="."]
+
+[node name="rightX" type="Node2D" parent="destination_points"]
+position = Vector2(576, 0)
+
+[node name="rightUp" type="Node2D" parent="destination_points"]
+position = Vector2(576, -243)
+
+[node name="rightDown" type="Node2D" parent="destination_points"]
+position = Vector2(576, 243)
