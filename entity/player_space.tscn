@@ -4,5 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://lxgqjoeytm6e" path="res://entity/player_base.tscn" id="1_swjsc"]
 
 [node name="player_space" instance=ExtResource("1_swjsc")]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_2f10c")
 move_speed = 250.0

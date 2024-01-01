@@ -12,12 +12,8 @@ func _ready():
 	direction = Vector2(destination.x - position.x, destination.y - position.y).normalized()
 
 func _physics_process(delta):
-	#if direction != Vector2.ZERO:
-		##velocity = cos(delta * freq) * amp * direction #move_speed * direction
-		#time += delta
-		#print(cos(time * freq)* amp)
-		#velocity = sin(time * freq) * amp * direction
-		#move_and_slide()
+	if direction != Vector2.ZERO:
+		pass
 	time += delta
 	wave_effect = cos(time * freq) * amp
 	velocity = Vector2(move_speed, wave_effect)
