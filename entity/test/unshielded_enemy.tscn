@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bf16kwxxdovue"]
 
-[ext_resource type="Script" path="res://entity/unshielded_enemy.gd" id="1_3diaf"]
+[ext_resource type="Script" path="res://entity/entityScripts/test/unshielded_enemy.gd" id="1_3diaf"]
 [ext_resource type="PackedScene" uid="uid://capg22fvoej3b" path="res://weapons/laser.tscn" id="2_xbucv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcj3t"]

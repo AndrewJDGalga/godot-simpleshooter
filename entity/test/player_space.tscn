@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwt3hob104uk4"]
 
-[ext_resource type="Script" path="res://entity/entityScripts/player_space.gd" id="1_2f10c"]
-[ext_resource type="PackedScene" uid="uid://lxgqjoeytm6e" path="res://entity/player_base.tscn" id="1_swjsc"]
+[ext_resource type="Script" path="res://entity/entityScripts/test/player_space.gd" id="1_2f10c"]
+[ext_resource type="PackedScene" uid="uid://lxgqjoeytm6e" path="res://entity/test/player_base.tscn" id="1_swjsc"]
 
 [node name="player_space" instance=ExtResource("1_swjsc")]
 z_index = 1

@@ -11,6 +11,7 @@ var wave_effect := 0
 func _ready():
 	if reverse_wave:
 		amp *= -1
+	print(get_tree().root.get_child_count())
 
 func _physics_process(delta):
 	if direction != Vector2.ZERO:
