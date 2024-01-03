@@ -16,7 +16,6 @@ base_shield = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_gcj3t")
-disabled = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -8.0

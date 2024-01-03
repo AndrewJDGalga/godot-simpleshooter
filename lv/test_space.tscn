@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://biu52s1a0e6vg"]
+[gd_scene load_steps=4 format=3 uid="uid://biu52s1a0e6vg"]
 
 [ext_resource type="PackedScene" uid="uid://dwt3hob104uk4" path="res://entity/player_space.tscn" id="1_gugsu"]
 [ext_resource type="Script" path="res://lv/test_space.gd" id="1_qqodf"]
 [ext_resource type="PackedScene" uid="uid://bf16kwxxdovue" path="res://entity/unshielded_enemy.tscn" id="3_0sjr2"]
-[ext_resource type="PackedScene" uid="uid://1ht6gwjlfdo5" path="res://lv/lv_util/spawn_point.tscn" id="3_kmbvh"]
 
 [node name="TestSpace" type="Node2D"]
 script = ExtResource("1_qqodf")
@@ -15,20 +14,13 @@ move_speed = 400.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="spawn_points" type="Node2D" parent="."]
+[node name="spawn_points_left" type="Node2D" parent="."]
 
-[node name="SpawnPoint" parent="spawn_points" instance=ExtResource("3_kmbvh")]
-position = Vector2(-576, 0)
-target_positions = PackedVector2Array(576, 0, 576, -243, 576, 243)
-test_enemy = ExtResource("3_0sjr2")
+[node name="UnshieldedEnemy" parent="." instance=ExtResource("3_0sjr2")]
+position = Vector2(-549, 0)
+direction = Vector2(1, 0)
 
-[node name="destination_points" type="Node2D" parent="."]
-
-[node name="rightX" type="Node2D" parent="destination_points"]
-position = Vector2(576, 0)
-
-[node name="rightUp" type="Node2D" parent="destination_points"]
-position = Vector2(576, -243)
-
-[node name="rightDown" type="Node2D" parent="destination_points"]
-position = Vector2(576, 243)
+[node name="UnshieldedEnemy2" parent="." instance=ExtResource("3_0sjr2")]
+position = Vector2(543, 0)
+rotation = -1.5708
+direction = Vector2(-1, 0)
