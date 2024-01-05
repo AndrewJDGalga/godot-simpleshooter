@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmq8vofi26bg5"]
+[gd_scene load_steps=5 format=3 uid="uid://bmq8vofi26bg5"]
 
+[ext_resource type="Script" path="res://entity/entityScripts/player.gd" id="1_6l17g"]
 [ext_resource type="Texture2D" uid="uid://d0020ycbmteoo" path="res://data/player.png" id="1_b8l0g"]
+[ext_resource type="PackedScene" uid="uid://capg22fvoej3b" path="res://weapons/laser.tscn" id="2_x2uoq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rjgo5"]
 radius = 8.0
 height = 32.0
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_6l17g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_rjgo5")
@@ -22,3 +25,6 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_b8l0g")
 hframes = 5
 frame = 3
+
+[node name="Laser" parent="." instance=ExtResource("2_x2uoq")]
+position = Vector2(0, -16)
