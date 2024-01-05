@@ -1,14 +1,11 @@
 *
 **/*
 
-!lv/
-!lv_util/
 !entity/
-!entityScripts/
+!lv/
 !weapons/
-!test/
 !.gitignore
-!README.MD
 !project.godot
-!*.tscn
+!README.MD
 !*.gd
+!*.tscn
