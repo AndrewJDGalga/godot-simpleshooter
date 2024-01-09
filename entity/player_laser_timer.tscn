@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cvsqn3rvq1r5d"]
 
-[ext_resource type="Script" path="res://entity/player_laser_timer.gd" id="1_q0woy"]
+[ext_resource type="Script" path="res://entity/entityScripts/player_laser_timer.gd" id="1_q0woy"]
 
 [node name="PlayerLaserTimer" type="ColorRect"]
 offset_bottom = 16.0
