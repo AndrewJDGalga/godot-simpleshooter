@@ -2,6 +2,8 @@
 **/*
 
 !entity/
+!entityScripts/
+!test/
 !lv/
 !weapons/
 !.gitignore
