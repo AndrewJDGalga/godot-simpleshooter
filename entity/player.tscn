@@ -31,3 +31,6 @@ frame = 3
 position = Vector2(0, -16)
 
 [node name="PlayerLaserTimer" parent="." instance=ExtResource("4_iai3g")]
+
+[node name="PlayerCoolTimer" parent="." instance=ExtResource("4_iai3g")]
+color = Color(1, 0.580392, 0, 1)
