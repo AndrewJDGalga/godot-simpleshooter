@@ -1,7 +1,9 @@
 extends Area2D
 
 @export_group("Movement")
-@export var speed:float = 50.0
+@export var speed := Vector2(40,10)
+@export var speed_limit := Vector2(200, 160)
+var velocity := Vector2.ZERO
 
 @export_group("Laser")
 enum LASER_STATES {READY, FIRING, COOLING, LOCKED}
@@ -17,9 +19,12 @@ var current_laser_state:LASER_STATES = LASER_STATES.READY
 
 
 func _physics_process(delta):
-	
-	
+	move(delta)
 	firing_states(delta)
+
+func move(dt):
+	velocity += Input.get_axis("down", "up") * Vector2.UP.rotated(rotation) * speed * dt
+	position += velocity.clamp(-speed_limit, speed_limit)
 
 func firing_states(dt):
 	match current_laser_state:
