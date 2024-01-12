@@ -3,6 +3,7 @@ extends Area2D
 @export_group("Movement")
 @export var speed := Vector2(40,10)
 @export var speed_limit := Vector2(200, 160)
+@export var speed_rotate := 2.0
 var velocity := Vector2.ZERO
 
 @export_group("Laser")
@@ -19,6 +20,7 @@ var current_laser_state:LASER_STATES = LASER_STATES.READY
 
 
 func _physics_process(delta):
+	rotate(Input.get_axis("left", "right") * delta * speed_rotate)
 	move(delta)
 	firing_states(delta)
 
