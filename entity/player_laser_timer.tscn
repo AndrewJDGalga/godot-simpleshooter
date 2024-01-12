@@ -3,5 +3,15 @@
 [ext_resource type="Script" path="res://entity/entityScripts/player_laser_timer.gd" id="1_q0woy"]
 
 [node name="PlayerLaserTimer" type="ColorRect"]
+z_index = 1
+y_sort_enabled = true
 offset_bottom = 16.0
 script = ExtResource("1_q0woy")
+
+[node name="AccuracyBacking" type="ColorRect" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 16.0
+color = Color(0.219608, 0.207843, 0.196078, 1)

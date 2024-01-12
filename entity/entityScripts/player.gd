@@ -18,6 +18,7 @@ var lock_cooldown = false
 func _physics_process(delta):
 	if Input.is_action_pressed("fire_laser") && !lock_cooldown:
 		laser_timer.increaseFill(delta, 50.0)
+		normal_cooldown = false
 	if Input.is_action_just_released("fire_laser") && !lock_cooldown:
 		normal_cooldown = true
 	if laser_timer.is_overheated():
