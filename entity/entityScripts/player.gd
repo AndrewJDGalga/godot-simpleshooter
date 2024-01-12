@@ -3,7 +3,7 @@ extends Area2D
 @export_group("Movement")
 @onready var sprite = $PlayerShip
 @export var speed := Vector2(40,10)
-@export var speed_limit := Vector2(100, 80)
+@export var speed_limit := Vector2(8, 5)
 @export var speed_rotate := 2.0
 var velocity:Vector2
 var screen_limit:Vector2
@@ -52,7 +52,9 @@ func screen_wrap():
 
 func move(dt):
 	velocity += Input.get_axis("down", "up") * Vector2.UP.rotated(rotation) * speed * dt
-	position += velocity.clamp(-speed_limit, speed_limit)
+	velocity = velocity.clamp(-speed_limit, speed_limit)
+	position += velocity #.clamp(-speed_limit, speed_limit)
+	#position = position
 
 func firing_states(dt):
 	match current_laser_state:
