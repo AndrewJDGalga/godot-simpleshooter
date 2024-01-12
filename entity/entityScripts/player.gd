@@ -5,6 +5,7 @@ extends Area2D
 @export var speed := Vector2(40,10)
 @export var speed_limit := Vector2(8, 5)
 @export var speed_rotate := 2.0
+@export var sprite_size := Vector2(8,32)
 var velocity:Vector2
 var screen_limit:Vector2
 var top_limit:int
@@ -29,10 +30,10 @@ func _ready():
 	screen_limit = Vector2( \
 		ProjectSettings.get_setting("display/window/size/viewport_width"), \
 		ProjectSettings.get_setting("display/window/size/viewport_height"))
-	top_limit = -screen_limit.y/2 + 16
-	bottom_limit = screen_limit.y/2 - 16
-	left_limit = -screen_limit.x/2 + 4
-	right_limit = screen_limit.x/2 - 4
+	top_limit = -screen_limit.y/2 + sprite_size.y/2
+	bottom_limit = screen_limit.y/2 - sprite_size.y/2
+	left_limit = -screen_limit.x/2 + sprite_size.x/2
+	right_limit = screen_limit.x/2 - sprite_size.x/2
 
 func _physics_process(delta):
 	rotate(Input.get_axis("left", "right") * delta * speed_rotate)
@@ -53,8 +54,7 @@ func screen_wrap():
 func move(dt):
 	velocity += Input.get_axis("down", "up") * Vector2.UP.rotated(rotation) * speed * dt
 	velocity = velocity.clamp(-speed_limit, speed_limit)
-	position += velocity #.clamp(-speed_limit, speed_limit)
-	#position = position
+	position += velocity
 
 func firing_states(dt):
 	match current_laser_state:
@@ -71,12 +71,15 @@ func firing_state_ready():
 	if Input.is_action_just_pressed("fire_laser"):
 		current_laser_state = LASER_STATES.FIRING
 func firing_state_firing(dt):
-	if laser_timer.is_overheated():
-		current_laser_state = LASER_STATES.LOCKED
 	if Input.is_action_pressed("fire_laser"):
 		laser_timer.increaseFill(dt, laser_fill_rate)
+		laser.enable_laser()
 	if Input.is_action_just_released("fire_laser"):
+		laser.disable_laser()
 		current_laser_state = LASER_STATES.COOLING
+	if laser_timer.is_overheated():
+		laser.disable_laser()
+		current_laser_state = LASER_STATES.LOCKED
 func firing_state_cooling(dt):
 	laser_timer.decreaseFill(dt, laser_empty_rate)
 	if laser_timer.is_cool():

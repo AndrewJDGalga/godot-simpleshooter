@@ -1,17 +1,16 @@
 extends RayCast2D
 
-var sprite = null
+@onready var sprite = $ColorRect
 
 func _ready():
-	sprite = $ColorRect
-	setLaserActive(false)
+	set_laser_active(false)
 
-func setLaserActive(boolean):
+func set_laser_active(boolean):
 	sprite.visible = boolean
 	self.enabled = boolean
 
-func enableLaser():
-	setLaserActive(true)
+func enable_laser():
+	set_laser_active(true)
 
-func disableLaser():
-	setLaserActive(false)
+func disable_laser():
+	set_laser_active(false)
