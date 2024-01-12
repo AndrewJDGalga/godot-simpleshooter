@@ -1,18 +1,24 @@
 extends Area2D
 
-###movement
+@export_group("Movement")
+@export var speed:float = 50.0
 
-###laser
+@export_group("Laser")
 enum LASER_STATES {READY, FIRING, COOLING, LOCKED}
 @onready var laser = $Laser
+var current_laser_state:LASER_STATES = LASER_STATES.READY
+
+@export_subgroup("Laser Timer")
 @onready var laser_timer = $PlayerLaserTimer
 @export var laser_fill_rate= 50.0
 @export var laser_empty_rate = 50.0
 @export var laser_empty_rate_punished = 20.0
 @export var laser_cooldown = 300
-var current_laser_state:LASER_STATES = LASER_STATES.READY
+
 
 func _physics_process(delta):
+	
+	
 	firing_states(delta)
 
 func firing_states(dt):
