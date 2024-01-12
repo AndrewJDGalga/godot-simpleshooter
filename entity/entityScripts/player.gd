@@ -1,10 +1,16 @@
 extends Area2D
 
 @export_group("Movement")
+@onready var sprite = $PlayerShip
 @export var speed := Vector2(40,10)
-@export var speed_limit := Vector2(200, 160)
+@export var speed_limit := Vector2(100, 80)
 @export var speed_rotate := 2.0
-var velocity := Vector2.ZERO
+var velocity:Vector2
+var screen_limit:Vector2
+var top_limit:int
+var bottom_limit:int
+var left_limit:int
+var right_limit:int
 
 @export_group("Laser")
 enum LASER_STATES {READY, FIRING, COOLING, LOCKED}
@@ -19,10 +25,30 @@ var current_laser_state:LASER_STATES = LASER_STATES.READY
 @export var laser_cooldown = 300
 
 
+func _ready():
+	screen_limit = Vector2( \
+		ProjectSettings.get_setting("display/window/size/viewport_width"), \
+		ProjectSettings.get_setting("display/window/size/viewport_height"))
+	top_limit = -screen_limit.y/2 + 16
+	bottom_limit = screen_limit.y/2 - 16
+	left_limit = -screen_limit.x/2 + 4
+	right_limit = screen_limit.x/2 - 4
+
 func _physics_process(delta):
 	rotate(Input.get_axis("left", "right") * delta * speed_rotate)
 	move(delta)
+	screen_wrap()
 	firing_states(delta)
+
+func screen_wrap():
+	if position.x < left_limit:
+		position.x = right_limit
+	if position.x > right_limit:
+		position.x = left_limit
+	if position.y < top_limit:
+		position.y = bottom_limit
+	if position.y > bottom_limit:
+		position.y = top_limit
 
 func move(dt):
 	velocity += Input.get_axis("down", "up") * Vector2.UP.rotated(rotation) * speed * dt
