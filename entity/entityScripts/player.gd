@@ -58,8 +58,18 @@ func screen_wrap():
 
 func move_animation(input):
 	sprite_thrusters.visible = false
+	if input.x > 0:
+		sprite_thrusters.frame = 1
+	if input.x < 0:
+		sprite_thrusters.frame = 0
+	if input.y > 0:
+		sprite_thrusters.frame = 3
+	if input.y < 0:
+		sprite_thrusters.frame = 2
+	
 	if input:
 		sprite_thrusters.visible = true
+
 
 func move(input_y, dt):
 	velocity += input_y * Vector2.UP.rotated(rotation) * speed * dt
