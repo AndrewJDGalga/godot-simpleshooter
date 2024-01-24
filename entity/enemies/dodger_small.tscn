@@ -1,7 +1,20 @@
-[gd_scene format=3 uid="uid://b637s5cetor0c"]
+[gd_scene load_steps=2 format=3 uid="uid://b637s5cetor0c"]
 
-[node name="dodger_small" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dkti"]
+size = Vector2(32, 12)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="DodgerCarrier" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="dodger_small" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dodger_small"]
+shape = SubResource("RectangleShape2D_7dkti")
+
+[node name="Sprite2D" type="Sprite2D" parent="dodger_small"]
+
+[node name="ColorRect" type="ColorRect" parent="dodger_small"]
+offset_left = -16.0
+offset_top = -6.0
+offset_right = 16.0
+offset_bottom = 6.0
+color = Color(0.752941, 0, 0.764706, 1)

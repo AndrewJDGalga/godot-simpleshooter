@@ -1,7 +1,18 @@
-[gd_scene format=3 uid="uid://dkm8l8hiaen2b"]
+[gd_scene load_steps=2 format=3 uid="uid://dkm8l8hiaen2b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fhgr"]
+size = Vector2(48, 24)
 
 [node name="dodger_big" type="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2fhgr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -24.0
+offset_top = -12.0
+offset_right = 24.0
+offset_bottom = 12.0
+color = Color(1, 0.729412, 0, 1)
