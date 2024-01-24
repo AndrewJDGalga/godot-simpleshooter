@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://biu52s1a0e6vg"]
+[gd_scene load_steps=3 format=3 uid="uid://biu52s1a0e6vg"]
 
 [ext_resource type="Script" path="res://lv/test_space.gd" id="1_qqodf"]
 [ext_resource type="PackedScene" uid="uid://bmq8vofi26bg5" path="res://entity/player.tscn" id="2_ehha6"]
-[ext_resource type="PackedScene" uid="uid://nq0en642cofl" path="res://entity/straight_and_shoot.tscn" id="3_2hn6u"]
 
 [node name="TestSpace" type="Node2D"]
 script = ExtResource("1_qqodf")
@@ -17,7 +16,3 @@ color = Color(0, 0, 0, 1)
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_ehha6")]
-
-[node name="StraightAndShoot" parent="." instance=ExtResource("3_2hn6u")]
-position = Vector2(-520, -163)
-move_speed = 40.0
