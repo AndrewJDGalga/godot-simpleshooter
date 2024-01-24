@@ -3,9 +3,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dkti"]
 size = Vector2(32, 12)
 
-[node name="DodgerCarrier" type="Node2D"]
+[node name="dodger_small_carrier" type="Node2D"]
 
-[node name="dodger_small" type="CharacterBody2D" parent="."]
+[node name="dodger_small" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dodger_small"]
 shape = SubResource("RectangleShape2D_7dkti")

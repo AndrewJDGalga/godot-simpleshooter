@@ -3,7 +3,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2n3dp"]
 size = Vector2(12, 12)
 
-[node name="smallbox" type="CharacterBody2D"]
+[node name="smallbox" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

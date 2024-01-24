@@ -3,14 +3,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fhgr"]
 size = Vector2(48, 24)
 
-[node name="dodger_big" type="CharacterBody2D"]
+[node name="dodger_big_carrier" type="Node2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="dodger_big" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dodger_big"]
 shape = SubResource("RectangleShape2D_2fhgr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="dodger_big"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="dodger_big"]
 offset_left = -24.0
 offset_top = -12.0
 offset_right = 24.0

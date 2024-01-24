@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://dxs3tjp04bgdp"]
+[gd_scene load_steps=2 format=3 uid="uid://dxs3tjp04bgdp"]
+
+[ext_resource type="Script" path="res://entity/enemies/hugeship.gd" id="1_4vco0"]
 
 [node name="hugeship" type="Node2D"]
+script = ExtResource("1_4vco0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
