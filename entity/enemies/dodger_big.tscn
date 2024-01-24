@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dkm8l8hiaen2b"]
+
+[node name="dodger_big" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
